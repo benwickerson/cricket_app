@@ -7,9 +7,9 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
+gem 'pg', '0.14.1'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.7'
   gem 'rspec-rails', '2.13.0'
   gem 'guard-rspec', '2.5.0'
   gem 'spork-rails', github: 'railstutorial/spork-rails'
@@ -32,7 +32,7 @@ group :test do
   gem 'libnotify', '0.8.0'
 
   # Uncomment these lines on Windows.
-  # gem 'rb-fchange', '0.0.6'
+  # gem 'rb-fchange', '0.0.6'm
   # gem 'rb-notifu', '0.0.4'
   # gem 'win32console', '1.3.2'
 end
@@ -46,7 +46,3 @@ end
 gem 'jquery-rails', '2.2.1'
 gem 'turbolinks', '1.0.0'
 gem 'jbuilder', '1.0.1'
-
-group :production do
-  gem 'pg', '0.14.1'
-end
