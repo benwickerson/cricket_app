@@ -8,17 +8,26 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    if !signed_in?
+      @user = User.new
+    else
+      flash[:notice] = "You are already in an account, dufus.  Sign out if you really want to create a new one."
+      redirect_to root_path
+    end
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      sign_in @user
-      flash[:success] = "Welcome to Cricket, #{@user.name}!"
-      redirect_to @user
+    if !signed_in?
+      @user = User.new(user_params)
+      if @user.save
+        sign_in @user
+        flash[:success] = "Welcome to Cricket, #{@user.name}!"
+        redirect_to @user
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      redirect_to root_path
     end
   end
 
