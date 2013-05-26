@@ -7,7 +7,8 @@ namespace :db do
                  email: "ben.wickerson@gmail.com",
                  password: "123test",
                  password_confirmation: "123test",
-                 admin: true)
+                 admin: true,
+                 country_id: 247)
     99.times do |n|
       name = Faker::Name.name
       email = "example-#{n+1}@railstutorial.org"
@@ -15,7 +16,8 @@ namespace :db do
       User.create!(name: name,
                    email: email,
                    password: password,
-                   password_confirmation: password)
+                   password_confirmation: password,
+                   country_id: rand(250))
       end
     users = User.all(limit: 6)
     50.times do
@@ -23,22 +25,15 @@ namespace :db do
       users.each { |user| user.microposts.create!(content: content) }
     end
 
-    Player.create!(first_name: "Alastair", last_name: "Cook", dob: "25/12/1984", country_of_birth: 247 )
-    Player.create!(first_name: "Nick", last_name: "Compton", dob: "26/06/1983", country_of_birth: 247 )
-    Player.create!(first_name: "Jonathon", last_name: "Trott", dob: "22/04/1981", country_of_birth: 214 )
-    Player.create!(first_name: "Kevin", last_name: "Petersen", dob: "27/06/1980", country_of_birth: 214 )
-    Player.create!(first_name: "Ian", last_name: "Bell", dob: "11/04/1982", country_of_birth: 247 )
-    Player.create!(first_name: "Jonny", last_name: "Bairstow", dob: "26/09/1989", country_of_birth: 247 )
-    Player.create!(first_name: "Matt", last_name: "Prior", dob: "26/02/1982", country_of_birth: 214 )
-    Player.create!(first_name: "Stuart", last_name: "Broad", dob: "24/06/1986", country_of_birth: 247 )
-    Player.create!(first_name: "Jimmy", last_name: "Anderson", dob: "30/07/1982", country_of_birth: 247 )
-    Player.create!(first_name: "Graeham", last_name: "Swann", dob: "24/03/1979", country_of_birth: 247 )
-    Player.create!(first_name: "Stephen", last_name: "Finn", dob: "04/04/1989", country_of_birth: 247 )
-
-    Team.create!(name: "England", country: 247)
-
     CSV.foreach('lib/tasks/countries.csv', headers: true) do |row|
       Country.create!(row.to_hash)
     end
+
+    CSV.foreach('lib/tasks/players.csv', headers: true) do |row|
+      Player.create!(row.to_hash)
+    end
+
+    Team.create!(name: "The most amazing team", country_id: 247, user_id: 1)
+
   end
 end

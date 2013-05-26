@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130526075111) do
+ActiveRecord::Schema.define(version: 20130526212332) do
 
   create_table "countries", force: true do |t|
     t.string   "code"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20130526075111) do
     t.datetime "updated_at"
   end
 
+  create_table "players_teams", id: false, force: true do |t|
+    t.integer "player_id"
+    t.integer "team_id"
+  end
+
+  add_index "players_teams", ["player_id", "team_id"], name: "index_players_teams_on_player_id_and_team_id"
+  add_index "players_teams", ["team_id", "player_id"], name: "index_players_teams_on_team_id_and_player_id"
+
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -50,22 +58,12 @@ ActiveRecord::Schema.define(version: 20130526075111) do
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
-  create_table "team_players", force: true do |t|
-    t.integer  "team_id"
-    t.integer  "player_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "team_players", ["player_id"], name: "index_team_players_on_player_id"
-  add_index "team_players", ["team_id", "player_id"], name: "index_team_players_on_team_id_and_player_id", unique: true
-  add_index "team_players", ["team_id"], name: "index_team_players_on_team_id"
-
   create_table "teams", force: true do |t|
     t.string   "name"
-    t.integer  "country"
+    t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
@@ -76,6 +74,7 @@ ActiveRecord::Schema.define(version: 20130526075111) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           default: false
+    t.integer  "country_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
