@@ -1,0 +1,15 @@
+<% provide(:title, 'Countries') %>
+<h1>Countries</h1>
+
+<%= will_paginate %>
+
+
+<% @countries.each do |country| %>
+
+<ul class="countries">
+  <li><%= country.name %></li>
+</ul>
+
+<% end %>
+
+<%= will_paginate %>

@@ -1,4 +1,7 @@
 CricketApp::Application.routes.draw do
+  resources :countries,   only: [:index]
+  resources :players
+  resources :teams
   resources :users
   resources :sessions,    only: [:new, :create, :destroy]
   resources :microposts,  only: [:create, :destroy]
@@ -10,7 +13,16 @@ CricketApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
 
-  
+# HTTP Verb   Path              action    used for
+# GET         /photos           index     display a list of all photos
+# GET         /photos/new       new       return an HTML form for creating a new photo
+# POST        /photos           create    create a new photo
+# GET         /photos/:id       show      display a specific photo
+# GET         /photos/:id/edit  edit      return an HTML form for editing a photo
+# PUT         /photos/:id       update    update a specific photo
+# DELETE      /photos/:id       destroy   delete a specific photo
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

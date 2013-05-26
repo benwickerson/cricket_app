@@ -35,6 +35,8 @@ namespace :db do
     Player.create!(first_name: "Graeham", last_name: "Swann", dob: "24/03/1979", country_of_birth: 247 )
     Player.create!(first_name: "Stephen", last_name: "Finn", dob: "04/04/1989", country_of_birth: 247 )
 
+    Team.create!(name: "England", country: 247)
+
     CSV.foreach('lib/tasks/countries.csv', headers: true) do |row|
       Country.create!(row.to_hash)
     end

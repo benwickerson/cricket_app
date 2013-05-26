@@ -1,0 +1,10 @@
+<% provide(:title, 'Players') %>
+<h1>Players</h1>
+
+<% @players.each do |player| %>
+
+<ul class="players">
+  <li><%= player.first_name %> <%= player.last_name %> (<%= age(player.dob) %>) - <%= player.country.name %></li>
+</ul>
+
+<% end %>

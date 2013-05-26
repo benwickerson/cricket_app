@@ -1,0 +1,10 @@
+<% provide(:title, 'Teams') %>
+<h1>Teams</h1>
+
+<% @teams.each do |team| %>
+
+<ul class="players">
+  <li><%= team.name %></li>
+</ul>
+
+<% end %>

@@ -14,5 +14,12 @@ FactoryGirl.define do
     content "Blah blah"
     user
   end
+
+  factory :player do
+    first_name "Ben"
+    last_name "Wickerson"
+    dob "17/03/1981"
+    country_id "38"
+  end
 end
 
