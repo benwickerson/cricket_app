@@ -35,5 +35,9 @@ namespace :db do
 
     Team.create!(name: "The most amazing team", country_id: 247, user_id: 1)
 
+    t=Team.first
+    p=Player.first(11)
+    t.players << p
+
   end
 end
