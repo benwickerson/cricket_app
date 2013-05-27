@@ -4,7 +4,7 @@
 <% @teams.each do |team| %>
 
 <ul class="players">
-  <li><%= team.name %></li>
+  <li><%= link_to "#{team.name}", team %></li>
 </ul>
 
 <% end %>

@@ -1,0 +1,11 @@
+<% provide(:title, @team.name) %>
+<h1><%= @team.name %></h1>
+<h2>Owned by: <%= link_to "#{@team.user.name}", @team.user %></h2>
+
+<% @team.players.each do |player| %>
+
+<ul class="players">
+  <li><%= link_to "#{player_name(player)}, #{age(player.dob)}", player %></li>
+</ul>
+
+<% end %>

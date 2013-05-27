@@ -1,0 +1,10 @@
+<% provide(:title, player_name(@player)) %>
+<h1><%= player_name(@player) %></h1>
+
+<dl class="dl-horizontal">
+  <dt>Age</dt>
+    <dd><%= age(@player.dob) %></dd>
+  <dt>Country of Birth</dt>
+    <dd><%= @player.country.name %></dd>
+</dl>
+
