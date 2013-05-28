@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
-  validates :country_id, presence: true
+  #validates :country_id, presence: true
 
   def feed
     Micropost.where("user_id = ?", id)

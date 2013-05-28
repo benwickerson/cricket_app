@@ -42,4 +42,7 @@ module SessionsHelper
     session[:return_to] = request.url
   end
 
+  def admin?
+    current_user.admin?
+  end
 end

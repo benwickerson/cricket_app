@@ -1,0 +1,36 @@
+<% provide(:title, "Edit Player") %>
+<h1>Edit Player</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@player) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+
+      <%= f.label :middle_name %>
+      <%= f.text_field :middle_name %>
+
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+
+      <%= f.label :country_id %>
+      <%= f.collection_select :country_id, Country.all, :id, :name %>
+
+      <%= f.label :dob, "Date of birth" %>
+      <%= f.date_select :dob, {   start_year: (Time.now.year - 80), end_year: Time.now.year } %>
+
+      <%= f.label :specialism_id %>
+      <%= f.collection_select :specialism_id, Specialism.all, :id, :specialism %>
+
+      <%= f.label :hand %>
+      <%= f.select :hand, ["Right", "Left"], include_blank: false %>
+
+      <%= f.label :biography %>
+      <%= f.text_area :biography, size: "24x6" %>
+      <br>
+      <%= f.submit "Edit player", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

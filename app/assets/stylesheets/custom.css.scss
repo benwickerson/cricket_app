@@ -58,7 +58,7 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 1.0em;
   line-height: 1.7em;
 }
 
@@ -152,7 +152,7 @@ aside {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 15px;
   @include box_sizing;
 }
@@ -236,4 +236,18 @@ aside {
 
 .countries li {
   color: $grayLight;
+}
+
+#player_dob_1i { 
+  float: left;
+  width: 100px;
+  margin-right: 5px;
+}
+
+#player_dob_2i {
+  width: 150px;
+}
+
+#player_dob_3i {
+  width: 75px;
 }
