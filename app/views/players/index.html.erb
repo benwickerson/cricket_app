@@ -4,7 +4,7 @@
 <% @players.each do |player| %>
 
 <ul class="players">
-  <li><%= player.first_name %> <%= player.last_name %>, <%= age(player.dob) %></li>
+  <li><%= link_to "#{player_name(player)}, #{age(player.dob)}", player %> </li>
 </ul>
 
 <% end %>

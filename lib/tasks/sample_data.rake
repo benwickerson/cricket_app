@@ -36,11 +36,18 @@ namespace :db do
     Team.create!(name: "The most amazing team", country_id: 247, user_id: 1)
     Team.create!(name: "These guys are pretty cool", country_id: 67, user_id: 1)
 
+    Specialism.create!(specialism: "Batsman")
+    Specialism.create!(specialism: "Bowler")
+    Specialism.create!(specialism: "Wicket-keeper")
+    Specialism.create!(specialism: "All-rounder")
+
     t=Team.first
     p=Player.first(11)
     t.players << p
 
-    
+    t=Team.last
+    p=Player.last(11)
+    t.players << p
 
   end
 end

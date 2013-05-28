@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: players
+#
+#  id            :integer          not null, primary key
+#  first_name    :string(255)
+#  middle_name   :string(255)
+#  last_name     :string(255)
+#  dob           :date
+#  country_id    :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#  specialism_id :integer
+#  hand          :string(255)
+#  biography     :text
+#
+
 require 'spec_helper'
 
 describe Player do
