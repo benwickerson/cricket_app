@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
 
   before_action :signed_in_user, only: [:new, :update]
-  before_action :admin_user, only: [:new, :update]
+  before_action :admin?, only: [:new, :update]
 
   def index
     @players = Player.all
@@ -20,7 +20,7 @@ class PlayersController < ApplicationController
   end
   
   def new
-    if admin_user
+    if admin?
       @player = Player.new
     else
       flash[:notice] = "Tsk tsk tsk, you can't go creating players just yet."
@@ -29,7 +29,7 @@ class PlayersController < ApplicationController
   end
 
   def create
-    if admin_user
+    if admin?
       @player = Player.new(player_params)
       if @player.save
         flash[:success] = "#{@player.first_name} #{@player.last_name} created successfully!"
@@ -43,7 +43,7 @@ class PlayersController < ApplicationController
   end
 
   def edit
-    if signed_in? && admin_user
+    if admin?
       @player = Player.find(params[:id])
     else
       flash[:notice] = "Tsk tsk tsk, you can't go editing players just yet."
@@ -66,10 +66,6 @@ class PlayersController < ApplicationController
 
     def player_params
       params.require(:player).permit(:first_name, :middle_name, :last_name, :dob, :country_id, :specialism_id, :hand, :biography)
-    end
-
-    def admin_user
-      current_user.admin?
     end
 
 end

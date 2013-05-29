@@ -1,5 +1,6 @@
 <% provide(:title, @team.name) %>
 <h1><%= @team.name %></h1>
+<h2><%= @team.country.name %></h2>
 <h2>Owned by: <%= link_to "#{@team.user.name}", @team.user %></h2>
 
 <ul class="players">
