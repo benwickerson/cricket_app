@@ -9,6 +9,11 @@ gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem 'pg', '0.14.1'
 gem 'annotate', ">=2.5.0"
+gem 'jquery-rails', '2.2.1'
+gem 'turbolinks', '1.0.0'
+gem 'jbuilder', '1.0.1'
+gem 'jquery-ui-rails'
+gem 'acts_as_list'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.0'
@@ -44,6 +49,3 @@ group :assets do
   gem 'uglifier', '1.0.3'
 end
 
-gem 'jquery-rails', '2.2.1'
-gem 'turbolinks', '1.0.0'
-gem 'jbuilder', '1.0.1'

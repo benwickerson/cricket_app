@@ -18,7 +18,8 @@
 class Player < ActiveRecord::Base
   belongs_to :country
   belongs_to :specialism
-  has_and_belongs_to_many :teams
+  has_many :team_memberships
+  has_many :teams, through: :team_memberships
 
   validates :first_name,     presence: true, length: { maximum: 50 }
   validates :last_name,      presence: true, length: { maximum: 50 }

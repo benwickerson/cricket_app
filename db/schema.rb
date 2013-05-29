@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130528203121) do
+ActiveRecord::Schema.define(version: 20130529213501) do
 
   create_table "countries", force: true do |t|
     t.string   "code"
@@ -42,14 +42,6 @@ ActiveRecord::Schema.define(version: 20130528203121) do
     t.text     "biography"
   end
 
-  create_table "players_teams", id: false, force: true do |t|
-    t.integer "player_id"
-    t.integer "team_id"
-  end
-
-  add_index "players_teams", ["player_id", "team_id"], name: "index_players_teams_on_player_id_and_team_id"
-  add_index "players_teams", ["team_id", "player_id"], name: "index_players_teams_on_team_id_and_player_id"
-
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -66,6 +58,19 @@ ActiveRecord::Schema.define(version: 20130528203121) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "team_memberships", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "player_id"
+    t.integer  "position"
+    t.boolean  "captain",       default: false
+    t.boolean  "wicket_keeper", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "team_memberships", ["player_id", "team_id"], name: "index_team_memberships_on_player_id_and_team_id", unique: true
+  add_index "team_memberships", ["team_id", "player_id"], name: "index_team_memberships_on_team_id_and_player_id", unique: true
 
   create_table "teams", force: true do |t|
     t.string   "name"

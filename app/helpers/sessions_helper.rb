@@ -43,6 +43,6 @@ module SessionsHelper
   end
 
   def admin?
-    current_user.admin?
+    signed_in? && current_user.admin?
   end
 end

@@ -5,6 +5,10 @@ class PlayersController < ApplicationController
 
   def index
     @players = Player.all
+    @players_bat = Player.where("specialism_id = 1")
+    @players_bowl = Player.where("specialism_id = 2")
+    @players_whi = Player.where("specialism_id = 3")
+    @players_all = Player.where("specialism_id = 4")
     respond_to do |format|
       format.html
       format.csv { send_data @players.to_csv }
