@@ -19,10 +19,10 @@
       <%= f.collection_select :country_id, Country.all, :id, :name %>
 
       <%= f.label :dob, "Date of birth" %>
-      <%= f.date_select :dob, {   start_year: (Time.now.year - 80), end_year: Time.now.year } %>
+      <%= f.date_select :dob, { start_year: (Time.now.year - 80), end_year: Time.now.year } %>
 
       <%= f.label :specialism_id %>
-      <%= f.collection_select :specialism_id, Specialism.all, :id, :specialism %>
+      <%= f.collection_select(:specialism_id, Specialism.all, :id, :specialism) %>
 
       <%= f.label :hand %>
       <%= f.select :hand, ["Right", "Left"], include_blank: false %>
