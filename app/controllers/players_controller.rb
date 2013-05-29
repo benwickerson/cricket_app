@@ -5,6 +5,10 @@ class PlayersController < ApplicationController
 
   def index
     @players = Player.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @players.to_csv }
+    end
   end
 
   def show

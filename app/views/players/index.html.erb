@@ -1,6 +1,12 @@
 <% provide(:title, 'Players') %>
 <h1>Players</h1>
 
+<div>
+  <% if signed_in? && admin? %>
+    <button class="btn"><%= link_to "Download CSV", players_path(format: "csv") %></button>
+  <% end %>
+</div>
+<p></p>
 <% @players.each do |player| %>
 
 <ul class="players">
@@ -8,3 +14,5 @@
 </ul>
 
 <% end %>
+
+

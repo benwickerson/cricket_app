@@ -1,8 +1,11 @@
 CricketApp::Application.routes.draw do
-  resources :countries,   only: [:index]
   resources :players
-  resources :teams
-  resources :users
+  resources :teams do
+    resources :players
+  end
+  resources :users do
+    resources :teams
+  end
   resources :sessions,    only: [:new, :create, :destroy]
   resources :microposts,  only: [:create, :destroy]
   root to: 'static_pages#home'
