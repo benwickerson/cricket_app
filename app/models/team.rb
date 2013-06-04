@@ -20,5 +20,5 @@ class Team < ActiveRecord::Base
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :user_id, presence: true
-  validates :home_ground_id, presence: true
+  validates :ground_id, presence: true
 end
