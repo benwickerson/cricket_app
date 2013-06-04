@@ -1,0 +1,19 @@
+<% provide(:title, 'Grounds') %>
+<h1>Grounds</h1>
+
+
+  <% if admin? %>
+<div class="btn-group">
+    <%= link_to "Add new ground", new_ground_path, class: "btn" %>
+</div>
+  <% end %>
+ 
+<div class="row">
+  <div class="span4">
+  <% @grounds.each do |ground| %>
+    <ul>
+      <li><%= link_to "#{ground.name}", ground %></li>
+    </ul>
+  <% end %>
+  </div>
+</div>

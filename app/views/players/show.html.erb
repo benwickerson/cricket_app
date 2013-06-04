@@ -1,25 +1,31 @@
 <% provide(:title, player_name(@player)) %>
-<h1><%= player_name(@player) %></h1>
-<% if signed_in? && admin? %>
-<%= link_to "Edit", edit_player_path(@player) %>
-<% end %>
 
-<dl class="dl-horizontal">
-  <dt>Age</dt>
-    <dd><%= age(@player.dob) %></dd>
-  <dt>Country of Birth</dt>
-    <dd><%= @player.country.name %></dd>
-  <dt>Specialism</dt>
-    <dd><%= @player.specialism.specialism %></dd>
-  <dt>Hand</dt>
-    <dd><%= @player.hand %></dd>
-  <dt>Biography</dt>
-      <% if @player.biography? %>
-    <dd><%= @player.biography %></dd>
-      <% else %>
-    <dd>Nothing yet...</dd>
-      <% end %>
-  <dt># of teams playing for:</dt>
-    <dd><%= "#{@player.teams.count}" %></dd>
-</dl>
-
+  <aside class="span4">
+    <section>
+      <h1>
+          <%= player_name(@player) %>
+      </h1>
+    </section>
+    <section>
+      <dl class="dl-horizontal">
+        <dt>Age</dt>
+          <dd><%= age(@player.dob) %></dd>
+        <dt>Country of Birth</dt>
+          <dd><%= @player.country.name %></dd>
+        <dt>Specialism</dt>
+          <dd><%= @player.specialism.specialism %></dd>
+        <dt>Hand</dt>
+          <dd><%= @player.hand %></dd>
+        <dt>Biography</dt>
+            <% if @player.biography? %>
+          <dd><%= @player.biography %></dd>
+            <% else %>
+          <dd>Nothing yet...</dd>
+            <% end %>
+        <dt># of teams playing for:</dt>
+          <dd><%= "#{@player.teams.count}" %></dd>
+      </dl>
+    </section>
+  </aside>
+  <div class="span8">
+  </div>

@@ -1,0 +1,27 @@
+<% provide(:title, 'Edit ground') %>
+<h1>Edit Ground</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@ground) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :address %>
+      <%= f.text_area :address %>
+
+      <%= f.label :country_id %>
+      <%= f.collection_select :country_id, Country.all, :id, :name %>
+
+      <%= f.label :capacity %>
+      <%= f.text_field :capacity %>
+
+      <%= f.label :url %>
+      <%= f.text_field :url %>
+      <br>
+      <%= f.submit "Update ground", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

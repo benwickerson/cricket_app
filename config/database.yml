@@ -8,7 +8,7 @@ development:
   encoding: unicode
   database: cricket_development
   pool: 5
-  username: home
+  username: ben
   password: 
 
 # Warning: The database defined as "test" will be erased and
@@ -19,5 +19,5 @@ test:
   encoding: unicode
   database: cricket_test
   pool: 5
-  username: home
+  username: ben
   password:   

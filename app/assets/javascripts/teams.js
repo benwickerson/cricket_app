@@ -1,4 +1,4 @@
-$(document).ready(function() {
-    $( ".players" ).sortable();
-    $( ".players" ).disableSelection();
+$(function() {
+    $( ".team_edit" ).sortable();
+    $( ".team_edit" ).disableSelection();
   });

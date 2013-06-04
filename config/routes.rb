@@ -1,7 +1,9 @@
 CricketApp::Application.routes.draw do
+  resources :grounds
   resources :players
   resources :teams do
     resources :players
+    resources :grounds
   end
   resources :users do
     resources :teams

@@ -1,0 +1,17 @@
+<% provide(:title, @ground.name) %>
+<h1><%= @ground.name %></h1>
+<% if signed_in? && admin? %>
+<%= link_to "Edit", edit_ground_path(@ground) %>
+<% end %>
+
+<dl class="dl-horizontal">
+  <dt>Address</dt>
+    <dd><%= @ground.address %></dd>
+  <dt>Country</dt>
+    <dd><%= @ground.country.name %></dd>
+  <dt>Capacity</dt>
+    <dd><%= @ground.capacity %></dd>
+  <dt>Website</dt>
+    <dd><%= @ground.url %></dd>
+</dl>
+

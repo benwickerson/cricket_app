@@ -11,11 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130529213501) do
+ActiveRecord::Schema.define(version: 20130604194244) do
 
   create_table "countries", force: true do |t|
     t.string   "code"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "grounds", force: true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.integer  "country_id"
+    t.integer  "capacity"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,6 +88,7 @@ ActiveRecord::Schema.define(version: 20130529213501) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "ground_id"
   end
 
   create_table "users", force: true do |t|

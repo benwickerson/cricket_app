@@ -14,6 +14,7 @@ gem 'turbolinks', '1.0.0'
 gem 'jbuilder', '1.0.1'
 gem 'jquery-ui-rails'
 gem 'acts_as_list'
+gem 'rails3-jquery-autocomplete'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.0'
