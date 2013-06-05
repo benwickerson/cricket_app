@@ -6,12 +6,5 @@
     <li><%=link_to "Teams", teams_path %></li>
     <li><%=link_to "Players", players_path %></li>
     <li><%=link_to "Grounds", grounds_path %></li>
-    <% if admin? %>
-    <li class="divider"></li>
-    <li class="nav-header">Admin</li>
-    <li><%=link_to "New Player", new_player_path %></li>
-    <li><%=link_to "New Ground", new_ground_path %></li>
-    <li><%=link_to "Team Admin", '#' %></li>
-    <% end %>
   </ul>
 </li>

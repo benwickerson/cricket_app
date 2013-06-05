@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   before_action :signed_in_user, only: [:new, :create]
 
   def index
-    @teams = Team.all
+      @teams = Team.limit(params[:user_id])
   end
 
   def show
@@ -36,7 +36,7 @@ class TeamsController < ApplicationController
   private
 
     def team_params
-      params.require(:team).permit(:name, :country_id, :user_id)
+      params.require(:team).permit(:name, :country_id, :user_id, :ground_id)
     end
 
 end

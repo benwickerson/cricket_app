@@ -17,6 +17,9 @@
   </aside>
   <div class="span8">
     <h3>Team Roster</h3>
+    <% if current_user?(@team.user)%>
+    <%=link_to "Edit Roster", edit_user_team_path(@team.id, @team.user_id), class: "btn" %>
+    <% end %>
     <ul class="players nav nav-tabs nav-stacked"> 
       <% @team.team_memberships.each do |team_member| %>
       <li class ="player_list" id="<%= team_member.player_id %>"><%= link_to "#{team_member.position} - #{player_name(team_member.player)}, #{age(team_member.player.dob)}", [@team, team_member.player] %></li>

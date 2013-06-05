@@ -21,4 +21,13 @@ class Team < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
   validates :user_id, presence: true
   validates :ground_id, presence: true
+
+  def user_teams(user_id)
+    if user_id?
+      Team.all
+    else
+      Team.find_by_user_id(user_id)
+    end
+  end
+
 end

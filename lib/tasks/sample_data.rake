@@ -9,6 +9,11 @@ namespace :db do
                  password_confirmation: "123test",
                  admin: true,
                  country_id: 247)
+    User.create!(name: "Flo Harrison",
+                 email: "flo.harrison@uea.ac.uk",
+                 password: "123test",
+                 password_confirmation: "123test",
+                 country_id: 247)
 
     # 99.times do |n|
     #   name = Faker::Name.name
@@ -52,7 +57,7 @@ namespace :db do
     #   end
 
     Team.create!(name: "Norwich Wanderers", country_id: 247, user_id: 1, ground_id: 1)
-    Team.create!(name: "Lewisham Lackies", country_id: 247, user_id: 1, ground_id: 2)
+    Team.create!(name: "Lewisham Lackies", country_id: 247, user_id: 2, ground_id: 2)
 
     Ground.create!(name: "Norwich Cricket Club Grounds", 
                 address: "1 Ferry Lane, Postwick, Norwich, Norfolk NR13 5HL, Tel: 01603 431513", 
