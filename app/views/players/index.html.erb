@@ -1,49 +1,16 @@
 <% provide(:title, 'Players') %>
 <h1>Players</h1>
 
-
   <% if admin? %>
-<div class="btn-group">
+<div class="btn-group admin">
     <%= link_to "Download CSV", players_path(format: "csv"), class: "btn" %>
     <%= link_to "Add new player", new_player_path, class: "btn" %>
 </div>
   <% end %>
 
 <div class="row">
-
-  <div class="span3">
-    <h2>Batters</h2>
-    <ul class="players">
-      <% @players_bat.each do |batter| %>
-      <li><%= link_to "#{player_name(batter)}, #{age(batter.dob)}", batter %></li>
-      <% end %>
-    </ul>
-  </div>
-
-  <div class="span3">
-    <h2>Bowlers</h2>
-    <ul class="players">
-      <% @players_bowl.each do |bowler| %>
-      <li><%= link_to "#{player_name(bowler)}, #{age(bowler.dob)}", bowler %></li>
-      <% end %>
-    </ul>
-  </div>
-
-  <div class="span3">
-    <h2>Wicket-Keeprs</h2>
-    <ul class="players">
-      <% @players_whi.each do |wicket| %>
-      <li><%= link_to "#{player_name(wicket)}, #{age(wicket.dob)}", wicket %></li>
-      <% end %>
-    </ul>
-  </div>
-
-  <div class="span3">
-    <h2>All Rounders</h2>
-    <ul class="players">
-      <% @players_all.each do |all_rounder| %>
-      <li><%= link_to "#{player_name(all_rounder)}, #{age(all_rounder.dob)}", all_rounder %></li>
-      <% end %>
-    </ul>
-  </div>
+<%= render 'player_list', { player: @players_bat, title: "Batters" } %>
+<%= render 'player_list', { player: @players_bowl, title: "Bowlers" } %>
+<%= render 'player_list', { player: @players_whi, title: "Wicket Keepers" } %>
+<%= render 'player_list', { player: @players_all, title: "All Rounders" } %>
 </div>

@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20130604194244) do
     t.datetime "updated_at"
   end
 
-  add_index "microposts", ["user_id"], name: "index_microposts_on_user_id"
+  add_index "microposts", ["user_id"], name: "index_microposts_on_user_id", using: :btree
 
   create_table "players", force: true do |t|
     t.string   "first_name"
@@ -59,9 +59,9 @@ ActiveRecord::Schema.define(version: 20130604194244) do
     t.datetime "updated_at"
   end
 
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
   create_table "specialisms", force: true do |t|
     t.text     "specialism"
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 20130604194244) do
     t.datetime "updated_at"
   end
 
-  add_index "team_memberships", ["player_id", "team_id"], name: "index_team_memberships_on_player_id_and_team_id", unique: true
-  add_index "team_memberships", ["team_id", "player_id"], name: "index_team_memberships_on_team_id_and_player_id", unique: true
+  add_index "team_memberships", ["player_id", "team_id"], name: "index_team_memberships_on_player_id_and_team_id", unique: true, using: :btree
+  add_index "team_memberships", ["team_id", "player_id"], name: "index_team_memberships_on_team_id_and_player_id", unique: true, using: :btree
 
   create_table "teams", force: true do |t|
     t.string   "name"
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20130604194244) do
     t.integer  "country_id"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end

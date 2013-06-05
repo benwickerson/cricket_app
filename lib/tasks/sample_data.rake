@@ -41,20 +41,20 @@ namespace :db do
       Player.create!(row.to_hash)
     end
 
-    # 99.times do |n|
-    #   first_name = Faker::Name.first_name
-    #   last_name = Faker::Name.last_name
-    #   country_id = rand(250)
-    #   hand = ["Right","Left"].sample
-    #   specialism_id = rand(4) + 1
-    #   dob = rand(32.years).ago - 18.years
-    #   Player.create!(first_name: first_name,
-    #                last_name: last_name,
-    #                country_id: country_id,
-    #                hand: hand,
-    #                dob: dob,
-    #                specialism_id: specialism_id)
-    #   end
+    53.times do |n|
+      first_name = Faker::Name.first_name
+      last_name = Faker::Name.last_name
+      country_id = rand(250)
+      hand = ["Right","Left"].sample
+      specialism_id = rand(4) + 1
+      dob = rand(32.years).ago - 18.years
+      Player.create!(first_name: first_name,
+                   last_name: last_name,
+                   country_id: country_id,
+                   hand: hand,
+                   dob: dob,
+                   specialism_id: specialism_id)
+      end
 
     Team.create!(name: "Norwich Wanderers", country_id: 247, user_id: 1, ground_id: 1)
     Team.create!(name: "Lewisham Lackies", country_id: 247, user_id: 2, ground_id: 2)

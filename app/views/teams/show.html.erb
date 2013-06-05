@@ -15,16 +15,29 @@
       </dl>
     </section>  
   </aside>
-  <div class="span8">
+  <div class="span8 team-list">
     <h3>Team Roster</h3>
     <% if current_user?(@team.user)%>
     <%=link_to "Edit Roster", edit_user_team_path(@team.id, @team.user_id), class: "btn" %>
     <% end %>
-    <ul class="players nav nav-tabs nav-stacked"> 
-      <% @team.team_memberships.each do |team_member| %>
-      <li class ="player_list" id="<%= team_member.player_id %>"><%= link_to "#{team_member.position} - #{player_name(team_member.player)}, #{age(team_member.player.dob)}", [@team, team_member.player] %></li>
-      <% end %>
-    </ul>
+    <table class="table table-striped table-bordered table-condensed">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Specialism</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @team.team_memberships.each do |team_member| %>
+        <tr>
+          <td><%=link_to "#{team_member.player.full_name}", team_member.player %></td>
+          <td><%= team_member.player.age %></td>
+          <td><%= team_member.player.specialism.specialism %> </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 
