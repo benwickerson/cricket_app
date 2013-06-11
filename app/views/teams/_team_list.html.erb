@@ -1,0 +1,11 @@
+<table class="table table-bordered table-condensed team-list">
+<% teams.each do |team| %>
+  <tbody>
+    <tr>
+      <td><p><%= link_to "#{team.name.upcase}", team %></p></td>
+      <td class="team-ground"><%= team.ground.name %></td>
+      <td class="team-user"><%= link_to "#{team.user.name}", team.user %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

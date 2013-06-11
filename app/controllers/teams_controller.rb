@@ -2,7 +2,11 @@ class TeamsController < ApplicationController
   before_action :signed_in_user, only: [:new, :create]
 
   def index
-      @teams = Team.limit(params[:user_id])
+      if !params[:user_id].blank?
+        @teams = Team.where("user_id = ?", params[:user_id])
+      else
+        @teams = Team.all
+      end
   end
 
   def show

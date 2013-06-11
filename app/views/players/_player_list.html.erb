@@ -1,12 +1,12 @@
-<div class="span3">
-  <table class="table table-striped table-bordered table-condensed table-hover">
+<table class="table table-striped table-bordered table-condensed table-hover">
   <thead>
     <tr>
-      <th><%= title %></th>
+      <th class="megaheader"><p><%= title.upcase %></p></th>
     </tr>
   </thead>
+  <tbody>
     <% player.each do |x| %>
     <tr><td><%= link_to "#{x.full_name}", x %></td></tr>
     <% end %>
-  </table>
-</div>
+  </tbody>
+</table>
