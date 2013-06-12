@@ -78,10 +78,16 @@ namespace :db do
     t=Team.first
     p=Player.first(11)
     t.players << p
+    t.team_memberships[0].captain = true
+    t.team_memberships[6].wicket_keeper = true
+    t.save
 
     t=Team.last
     p=Player.last(11)
     t.players << p
+    t.team_memberships[0].captain = true
+    t.team_memberships[6].wicket_keeper = true
+    t.save
 
   end
 end

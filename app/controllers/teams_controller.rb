@@ -11,12 +11,14 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @members = @team.team_memberships.order('position')
   end
 
   def new
     if signed_in?
       @team = Team.new
       @team.user_id = current_user.id
+      member = @team.team_memberships.build
     else
       flash[:notice] = "Tsk tsk tsk, you can't go creating teams just yet. Try signing in..."
       redirect_to root_path
@@ -26,6 +28,7 @@ class TeamsController < ApplicationController
   def create
     if signed_in?
       @team = current_user.teams.build(team_params)
+      debugger
       if @team.save
         flash[:success] = "'#{@team.name}' created successfully!"
         redirect_to @team
@@ -40,7 +43,7 @@ class TeamsController < ApplicationController
   private
 
     def team_params
-      params.require(:team).permit(:name, :country_id, :user_id, :ground_id)
+      params.require(:team).permit(:name, :country_id, :user_id, :ground_id, team_memberships_attributes: :player_id)
     end
 
 end

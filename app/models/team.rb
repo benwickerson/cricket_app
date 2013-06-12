@@ -17,6 +17,7 @@ class Team < ActiveRecord::Base
   belongs_to :ground
   has_many :team_memberships
   has_many :players, through: :team_memberships
+  accepts_nested_attributes_for :team_memberships
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :user_id, presence: true

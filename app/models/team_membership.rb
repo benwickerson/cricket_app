@@ -13,7 +13,7 @@
 #
 
 class TeamMembership < ActiveRecord::Base
-  acts_as_list
+  acts_as_list scope: :team_id
   belongs_to :team
   belongs_to :player
 end
